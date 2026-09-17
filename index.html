@@ -1,77 +1,191 @@
 <!DOCTYPE html>
-<html>
+
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MP4 Loop Player</title>
 
-    <style>
-        body {
-            margin: 0;
-            min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background: #111;
-            font-family: Arial, sans-serif;
-        }
+```
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        .container {
-            width: 90%;
-            max-width: 600px;
-            text-align: center;
-        }
+<title>MP4 Loop Player - Loop Videos Online</title>
 
+<meta
+    name="description"
+    content="Free online MP4 loop player. Enter a direct video URL and play the video continuously in your browser, computer, phone, or TV."
+>
+
+<meta
+    name="keywords"
+    content="MP4 loop player, video loop, loop video online, MP4 player, repeat video, online video player, continuous video"
+>
+
+<meta name="robots" content="index, follow">
+
+<meta name="google-site-verification"
+    content="HDLr5ZpfYM2JBKskrufzuLqCH6UCjLzKXAK9JDK_bxc">
+
+<link
+    rel="canonical"
+    href="https://life-orb.github.io/MP4_Loop_Player/"
+>
+
+<!-- Open Graph -->
+<meta property="og:title" content="MP4 Loop Player - Loop Videos Online">
+
+<meta
+    property="og:description"
+    content="Play MP4 videos continuously in your browser. Enter a video URL and loop it automatically."
+>
+
+<meta
+    property="og:url"
+    content="https://life-orb.github.io/MP4_Loop_Player/"
+>
+
+<meta property="og:type" content="website">
+
+<style>
+    * {
+        box-sizing: border-box;
+    }
+
+    html,
+    body {
+        margin: 0;
+        padding: 0;
+        min-height: 100%;
+    }
+
+    body {
+        font-family: Arial, Helvetica, sans-serif;
+        background: #111;
+        color: #fff;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 30px 20px;
+    }
+
+    .container {
+        width: 100%;
+        max-width: 650px;
+        text-align: center;
+    }
+
+    h1 {
+        font-size: 42px;
+        margin: 0 0 15px;
+    }
+
+    .description {
+        color: #ccc;
+        font-size: 18px;
+        line-height: 1.5;
+        margin-bottom: 30px;
+    }
+
+    .input-container {
+        display: flex;
+        gap: 10px;
+    }
+
+    input {
+        flex: 1;
+        min-width: 0;
+        padding: 16px;
+        font-size: 16px;
+        border: none;
+        border-radius: 6px;
+        outline: none;
+    }
+
+    button {
+        padding: 16px 25px;
+        font-size: 16px;
+        font-weight: bold;
+        border: none;
+        border-radius: 6px;
+        cursor: pointer;
+    }
+
+    button:hover {
+        opacity: 0.85;
+    }
+
+    .info {
+        margin-top: 35px;
+        color: #999;
+        font-size: 14px;
+        line-height: 1.6;
+    }
+
+    @media (max-width: 600px) {
         h1 {
-            color: white;
-            margin-bottom: 30px;
+            font-size: 32px;
         }
 
-        input {
-            box-sizing: border-box;
-            width: 100%;
-            padding: 15px;
-            font-size: 16px;
-            border: none;
-            border-radius: 6px;
-            margin-bottom: 10px;
+        .input-container {
+            flex-direction: column;
         }
 
         button {
             width: 100%;
-            padding: 15px;
-            font-size: 16px;
-            border: none;
-            border-radius: 6px;
-            cursor: pointer;
         }
-    </style>
+    }
+</style>
+```
+
 </head>
 
 <body>
 
-<div class="container">
+<main class="container">
 
-    <h1>MP4 Loop Player</h1>
+```
+<h1>MP4 Loop Player</h1>
 
-    <input
-        id="videoUrl"
-        type="url"
-        placeholder="https://example.com/video.mp4"
-    >
+<p class="description">
+    Play MP4 videos continuously online.
+    Enter a direct MP4 video URL and the video will automatically
+    loop when it reaches the end.
+</p>
 
-    <button onclick="playVideo()">
-        Play
-    </button>
+<form onsubmit="playVideo(event)">
 
-</div>
+    <div class="input-container">
+
+        <input
+            id="videoUrl"
+            type="url"
+            placeholder="https://example.com/video.mp4"
+            aria-label="MP4 video URL"
+            required
+        >
+
+        <button type="submit">
+            Play
+        </button>
+
+    </div>
+
+</form>
+
+<p class="info">
+    MP4 Loop Player works in modern web browsers and can be used
+    on computers, phones, tablets, and compatible smart TVs.
+</p>
+```
+
+</main>
 
 <script>
-function playVideo() {
-    const url = document.getElementById("videoUrl").value.trim();
+function playVideo(event) {
+    event.preventDefault();
+
+    const input = document.getElementById("videoUrl");
+    const url = input.value.trim();
 
     if (!url) {
-        alert("Please enter a video URL.");
         return;
     }
 
