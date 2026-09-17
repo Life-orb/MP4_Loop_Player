@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MP4 Loop Player</title>
+
+    <style>
+        body {
+            margin: 0;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #111;
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 600px;
+            text-align: center;
+        }
+
+        h1 {
+            color: white;
+            margin-bottom: 30px;
+        }
+
+        input {
+            box-sizing: border-box;
+            width: 100%;
+            padding: 15px;
+            font-size: 16px;
+            border: none;
+            border-radius: 6px;
+            margin-bottom: 10px;
+        }
+
+        button {
+            width: 100%;
+            padding: 15px;
+            font-size: 16px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>MP4 Loop Player</h1>
+
+    <input
+        id="videoUrl"
+        type="url"
+        placeholder="https://example.com/video.mp4"
+    >
+
+    <button onclick="playVideo()">
+        Play
+    </button>
+
+</div>
+
+<script>
+function playVideo() {
+    const url = document.getElementById("videoUrl").value.trim();
+
+    if (!url) {
+        alert("Please enter a video URL.");
+        return;
+    }
+
+    window.location.href =
+        "player.html?url=" + encodeURIComponent(url);
+}
+</script>
+
+</body>
+</html>
